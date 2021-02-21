@@ -1,0 +1,46 @@
+/*header{
+    background:url(https://www.milehighonthecheap.com/lotc-cms/wp-content/uploads/2020/05/Park-Meadows-open.jpg)no-repeat center fixed;
+    background-size: cover;
+}*/
+body{
+    background-color: rgb(238, 238, 238);
+}
+header nav ul li {
+    display: inline-block;
+     padding: 10px;
+     font-size: x-large;
+    }
+    header nav ul li a{
+        text-decoration: none;
+        color: rgb(148, 9, 37);
+
+    }
+main h1{
+    text-align: center;
+    color: rgb(61, 2, 14);
+
+}
+#left-image{
+    display: inline-block;
+    width: 200px;
+    border: 5px; 
+    border: solid;
+    margin-left: 500px;
+}
+#middle-image{
+    display: inline-block;
+    width: 200px;
+    border: 5px; 
+    border: solid;
+    margin-left: 550px;
+}
+#right-image{
+    display: inline-block;
+    width: 200px;
+    border: 5px; 
+    border: solid;
+    margin-left: 10px;
+}
+#button{
+    float: left;
+}
