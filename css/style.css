@@ -12,34 +12,28 @@ header nav ul li {
     }
     header nav ul li a{
         text-decoration: none;
-        color: rgb(148, 9, 37);
+        color: rgb(245, 223, 227);
 
+    }
+    h3{
+        color: rgb(3, 3, 59);
     }
 main h1{
     text-align: center;
-    color: rgb(61, 2, 14);
+    color: rgb(189, 54, 88);
 
 }
-#left-image{
-    display: inline-block;
-    width: 200px;
-    border: 5px; 
-    border: solid;
-    margin-left: 500px;
+header{
+    background-color: rgb(58, 58, 128);
 }
-#middle-image{
+img{
     display: inline-block;
-    width: 200px;
-    border: 5px; 
-    border: solid;
-    margin-left: 550px;
-}
-#right-image{
-    display: inline-block;
-    width: 200px;
-    border: 5px; 
-    border: solid;
-    margin-left: 10px;
+    height: 250px;
+    width: 250px;
+    border: solid 5px rgb(113, 113, 245);
+    float: right;
+    margin-top: 80px;
+    margin-right: 80px;
 }
 #button{
     float: left;
