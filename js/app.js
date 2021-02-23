@@ -30,7 +30,7 @@ const MallProductsNames =[];
 const MallProductsVotes =[];
 const MallProductsViews =[];
 let show=[];
-let chances = 5;
+let chances = 25;
 
 function MallProducts(name){
     this.name = name ;
