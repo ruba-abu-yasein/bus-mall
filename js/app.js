@@ -39,11 +39,26 @@ function MallProducts(name){
     this.views = 0;
     
     MallProducts.all.push(this);
+
+    
 }
+
 MallProducts.all = [];
+console.log(MallProducts.all);
 for (let i = 0; i < names.length; i++) {
     new MallProducts(names[i]);
 }
+
+function retrieve(){
+  
+  if(localStorage.length >0) {
+    MallProducts.all = JSON.parse(localStorage.getItem('information'));
+    
+    render();
+  }
+}
+
+
 function render(){
     console.log( randomNumber(0, MallProducts.all.length - 1),MallProducts.all.length - 1);
     let leftIndex = randomNumber(0, MallProducts.all.length - 1);
@@ -62,7 +77,7 @@ function render(){
     show.push(middleIndex);
     show.push(rightIndex);
     console.log(show);
-
+    
     MallProducts.all[leftIndex].views++;
     MallProducts.all[middleIndex].views++;
     MallProducts.all[rightIndex].views++;
@@ -75,26 +90,30 @@ function render(){
     middleImage.title = MallProducts.all[middleIndex].name;
     middleImage.alt = MallProducts.all[middleIndex].name;
     
-  rightImage.src = MallProducts.all[rightIndex].path;
-  rightImage.title = MallProducts.all[rightIndex].name;
-  rightImage.alt = MallProducts.all[rightIndex].name;
+    rightImage.src = MallProducts.all[rightIndex].path;
+    rightImage.title = MallProducts.all[rightIndex].name;
+    rightImage.alt = MallProducts.all[rightIndex].name;
+
+   console.log(MallProducts.all);
+    localStorage.setItem('information',JSON.stringify(MallProducts.all));
+
 }
 
- imagesSection.addEventListener('click', handleClick);
- function handleClick(event){
-     if (event.target.id !== 'images-section') {
-         for (let i = 0;  i< MallProducts.all.length; i++) {
-             if(MallProducts.all[i].name === event.target.title){
-
-                 MallProducts.all[i].votes++;
-
-                } 
-            }
-if(chances===0){
-    imagesSection.removeEventListener('click',handleClick);
-}else{
-    chances--
-    render()
+imagesSection.addEventListener('click', handleClick);
+function handleClick(event){
+    if (event.target.id !== 'images-section') {
+        for (let i = 0;  i< MallProducts.all.length; i++) {
+            if(MallProducts.all[i].name === event.target.title){
+                
+                MallProducts.all[i].votes++;
+                
+            } 
+        }
+        if(chances===0){
+            imagesSection.removeEventListener('click',handleClick);
+        }else{
+            chances--
+            render()
     const buttonResults = document.getElementById('button');
     buttonResults.addEventListener('click',end);
 }
@@ -147,9 +166,10 @@ function end(){
     
     
 }
-render();
+//render();
 
 
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max-min + 1)) + min
 }
+retrieve();
