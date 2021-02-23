@@ -1,24 +1,24 @@
 const names = [
-    'bag',
-    'banana',
-    'bathroom',
-    'boots',
-    'breakfast',
-    'bubblegum',
-    'chair',
-    'cthulhu',
-    'dog-duck',
-    'dragon',
-    'pen',
-    'pet-sweep',
-    'scissors',
-    'shark',
-    'sweep',
-    'tauntaun',
-    'unicorn',
-    'usb',
-    'water-can',
-    'wine-glass',
+    'bag.jpg',
+    'banana.jpg',
+    'bathroom.jpg',
+    'boots.jpg',
+    'breakfast.jpg',
+    'bubblegum.jpg',
+    'chair.jpg',
+    'cthulhu.jpg',
+    'dog-duck.jpg',
+    'dragon.jpg',
+    'pen.jpg',
+    'pet-sweep.jpg',
+    'scissors.jpg',
+    'shark.jpg',
+    'sweep.png',
+    'tauntaun.jpg',
+    'unicorn.jpg',
+    'usb.gif',
+    'water-can.jpg',
+    'wine-glass.jpg',
 ];
 
 const leftImage = document.getElementById('left-image');
@@ -30,23 +30,26 @@ const MallProductsNames =[];
 const MallProductsVotes =[];
 const MallProductsViews =[];
 let show=[];
-let chances = 5;
+let chances = 25;
+
 
 function MallProducts(name){
     this.name = name ;
-    this.path = `./img/${name}.jpg`
+
+   
+    this.path = `./img/${name}`
     this.votes = 0;
     this.views = 0;
     
     MallProducts.all.push(this);
 
-    
 }
 
 MallProducts.all = [];
 console.log(MallProducts.all);
 for (let i = 0; i < names.length; i++) {
     new MallProducts(names[i]);
+    
 }
 
 function retrieve(){
@@ -60,6 +63,7 @@ function retrieve(){
 
 
 function render(){
+    console.log(MallProducts.all)
     console.log( randomNumber(0, MallProducts.all.length - 1),MallProducts.all.length - 1);
     let leftIndex = randomNumber(0, MallProducts.all.length - 1);
     let middleIndex = randomNumber(0, MallProducts.all.length - 1);
@@ -83,6 +87,7 @@ function render(){
     MallProducts.all[rightIndex].views++;
     
     leftImage.src = MallProducts.all[leftIndex].path;
+    console.log(leftImage.src)
     leftImage.title = MallProducts.all[leftIndex].name;
     leftImage.alt = MallProducts.all[leftIndex].name;
     
